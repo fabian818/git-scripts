@@ -1,0 +1,15 @@
+#!/bin/bash
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+echo "Current branch" $current_branch
+if [ $current_branch != $1 ]
+then
+	git checkout $1
+	echo "Changed to branch $1"
+fi
+message="$(git log -1 --pretty=%B --oneline)"
+echo $message
+url="$(hub pull-request -b master -h $1 -m $message)"
+echo $url
+git checkout master
+hub merge $url
+git push origin	master

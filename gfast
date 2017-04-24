@@ -1,0 +1,3 @@
+grebase $1
+gpush $1
+gpr $1

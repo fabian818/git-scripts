@@ -1,0 +1,2 @@
+sudo service apache2 stop
+rvmsudo rails s -p 80 -b 0.0.0.0

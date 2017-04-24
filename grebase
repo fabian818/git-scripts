@@ -1,0 +1,23 @@
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+echo "$current_branch"
+if [ $current_branch != "master" ]
+then
+	git checkout master
+	echo "Changed to branch master"
+fi
+echo "Pull from origin to master"
+git pull origin master
+
+echo "Changed to current branch"
+git checkout $1
+
+echo "Fetch master"
+git fetch
+
+echo "Initialized rebase"
+git rebase master
+
+echo "Changed to branch master"
+git checkout master
+
