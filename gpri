@@ -8,8 +8,8 @@ then
 fi
 message="$(git log -1 --pretty=%B --oneline)"
 echo $message
-url="$(hub pull-request -b master -h $1 -m $message)"
+url="$(hub pull-request -b $2 -h $1 -m $message)"
 echo $url
-git checkout master
+git checkout $2
 hub merge $url
-git push origin	master
+git push origin	$2
