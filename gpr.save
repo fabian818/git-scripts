@@ -7,7 +7,7 @@ then
 	echo "Changed to branch $1"
 fi
 message = "$(git log -1 --pretty=%B --oneline)"
-url="$(git pull-request -b master -h $1 -m $message)"
-git checkout master
+url="$(git pull-request -b $2 -h $1 -m $message)"
+git checkout $2
 git merge $url
-git push origin	master
+git push origin	$2
