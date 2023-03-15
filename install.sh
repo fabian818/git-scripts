@@ -1,5 +1,3 @@
-export PATH=$PATH:~/opt/bin
-
 #!/bin/bash
 
 # Define the filename
